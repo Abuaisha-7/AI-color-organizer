@@ -1,1 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+
+@theme {
+  --font-base: 'Cormorant Upright', serif;
+  --font-alt: 'Open Sans', sans-serif;
+  
+  --color-golden: #DCCA87;
+  --color-black: #0C0C0C;
+  --color-gray: #545454;
+  --color-crimson: #F5EFDB;
+  --color-grey: #AAAAAA;
+  --color-white: #FFFFFF;
+}
+
+/* Add the missing scroll-behavior property */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+
+
+a {
+  @apply  no-underline;
+}
+
+.slide-bottom {
+  -webkit-animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: slide-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slide-bottom {
+  0% {
+    -webkit-transform: translateY(-25%);
+            transform: translateY(-25%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+
+@layer components {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .section__padding {
+    @apply py-16 px-24 max-[950px]:py-16  max-[950px]:px-8;
+  }
+
+  .app__wrapper {
+    @apply flex justify-between items-center
+  }
+
+  .app__bg {
+    @apply bg-black bg-center bg-cover bg-repeat bg-fixed
+  }
+
+  .p__opensans {
+    @apply font-alt text-white text-[16px] leading-[23px] capitalize max-[950px]:text-[17px]
+  }
+
+  .p__cormorant {
+    @apply font-base text-white text-[23px] leading-[23px] capitalize max-[950px]:text-[30px]
+  }
+
+  .spoon__img {
+    @apply w-[45px] 
+  }
+
+  .custom__button {
+    @apply bg-crimson text-black font-base font-bold tracking-wider leading-7 text-base py-2 px-6 rounded-sm border-none outline-none cursor-pointer 
+  }
+ 
+  .app__wrapper_info {
+    @apply flex-1 flex justify-center items-start flex-col w-full max-[950px]:m-8
+}
+  .app__wrapper_img {
+    @apply flex-1 flex justify-center items-center w-full ml-8 
+  }
+
+  .app__wrapper_img img {
+    @apply w-[80%] max-[950px]:w-full max-[950px]:mt-8
+  }
+}
