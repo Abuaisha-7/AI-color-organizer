@@ -73,11 +73,15 @@ a {
   }
 
   .p__opensans {
-    @apply font-base font-bold text-black text-[30px] leading-[23px] capitalize text-center my-6
+    @apply font-base font-bold text-black text-[30px] leading-[23px] capitalize text-center mt-13 mb-3
   }
 
   .p__cormorant {
     @apply font-alt text-black text-[16px] leading-[23px] capitalize font-semibold my-2
+  }
+
+  .p__cormorant-error {
+    @apply font-alt text-red-500 text-[16px] leading-[23px] capitalize font-semibold my-2
   }
 
   .custom__button {
@@ -96,7 +100,11 @@ a {
     @apply flex flex-wrap flex-col relative border-2 border-gray-300 m-3 w-1/4 max-md:w-1/3 max-sm:w-full
   }
 
-  .color button {
-    @apply absolute right-3 top-1 text-[20px] bg-gray-400 w-[25px] hover:bg-red-500 hover:text-golden cursor-pointer
+  .color_button {
+    @apply absolute right-1 top-1 flex justify-center items-center 
+  }
+
+  .color_button button {
+    @apply text-[16px] p-1  bg-gray-400  hover:bg-red-500 hover:text-golden rounded-sm border-none outline-none cursor-pointer
   }
 }
