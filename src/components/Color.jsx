@@ -12,6 +12,7 @@ function Color({
 
   const [error, setError] = useState(null);
   const [mood, setMood] = useState('');
+  const [loadingMood, setLoadingMood] = useState(false);
   const [mooderror, setMoodError] = useState(null);
 
   const handleAIRating = async () => {
@@ -36,6 +37,7 @@ function Color({
   }
 
   const handleAIDescription = async () => {
+    setLoadingMood(true)
     setMoodError(null)
     setMood("")
     try {
@@ -44,6 +46,8 @@ function Color({
     } catch (error) {
       console.error(" Fectch AI Description Failed", error);
       setMoodError("Couldn't get Description from AI Please Try again!")
+    } finally {
+      setLoadingMood(false);
     }
   }
 
@@ -58,11 +62,14 @@ function Color({
       </div>
      
       <div className="h-[100px]" style={{ backgroundColor: color }}></div>
-      {mood && (<div className="p__cormorant">{mood}</div>)}
+     
       {error && (<div className="p__cormorant-error">{error}</div>) }
       <div className="w-full my-3 px-3">
         <StarRating starsSelected={rating} onRate={onRate} />
       </div>
+      {loadingMood && (<div className="p__cormorant">Getting mood...</div>)}
+      {mood && !loadingMood && !mooderror && (<div className="p__cormorant">{mood}</div>)}
+      {mooderror && (<div className="p__cormorant">{mooderror}</div>)}
     </section>
   );
 }
