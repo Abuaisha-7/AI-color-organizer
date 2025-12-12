@@ -67,9 +67,12 @@ function Color({
       <div className="w-full my-3 px-3">
         <StarRating starsSelected={rating} onRate={onRate} />
       </div>
+      <div className="mx-2">
       {loadingMood && (<div className="p__cormorant">Getting mood...</div>)}
       {mood && !loadingMood && !mooderror && (<div className="p__cormorant">{mood}</div>)}
       {mooderror && (<div className="p__cormorant">{mooderror}</div>)}
+      </div>
+      
     </section>
   );
 }

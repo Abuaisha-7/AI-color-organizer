@@ -7,7 +7,7 @@ function ColorList({
     onRemove = (f) => f
   }) {
   return (
-    <div className='flex flex-wrap w-full items-center my-3'>
+    <div className='flex flex-wrap items-cente  my-3 max-[900px]:justify-center  '>
         {colors.length === 0 ? (
       <p className='p__opensans'>No Colors Listed. (Add a Color)</p>
     ) : (

@@ -73,7 +73,7 @@ a {
   }
 
   .p__opensans {
-    @apply font-base font-bold text-black text-[30px] leading-[23px] capitalize text-center mt-13 mb-3
+    @apply font-base font-bold text-black text-[30px] leading-[23px] capitalize text-center mt-15 mb-5
   }
 
   .p__cormorant {
@@ -97,7 +97,7 @@ a {
   }
 
   .color {
-    @apply flex flex-wrap flex-col relative border-2 border-gray-300 m-3 w-1/4 max-md:w-1/3 max-sm:w-full
+    @apply flex flex-wrap flex-col relative border-2 border-gray-300 m-3 w-1/4 max-md:w-1/2 max-[1150px]:w-1/3  max-[900px]:w-1/2  max-sm:w-full
   }
 
   .color_button {
