@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StarRating from "./StarRating";
-import { describeColorWithAI, getAIRatingFromAPI } from "../api/openai";
+import { describeColorWithAI, getAIRatingFromAPI } from "../service/chat.service";
+// import { describeColorWithAI, getAIRatingFromAPI } from "../api/openai";
 
 function Color({
   title,
@@ -19,9 +20,9 @@ function Color({
     setError(null)
 
     try {
-      
-      const response = await getAIRatingFromAPI(title, color);
-    const rating = parseInt(response.match(/\d+/)?.[0], 10);
+      const formData = {title, color}
+      const response = await getAIRatingFromAPI(formData);
+      const rating = parseInt(response.match(/\d+/)?.[0], 10);
 
     if (rating >= 1 && rating <= 5) {
       onRate(rating);
@@ -41,7 +42,8 @@ function Color({
     setMoodError(null)
     setMood("")
     try {
-      const result = await describeColorWithAI(title, color);
+      const formData = {title, color}
+      const result = await describeColorWithAI(formData);
       setMood(result)
     } catch (error) {
       console.error(" Fectch AI Description Failed", error);

@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
-import { getColorNameFromAPI } from '../api/openai';
+// import { getColorNameFromAPI } from '../api/openai';
+import { getColorNameFromAPI } from '../service/chat.service';
 
 function AddColorForm( {onNewColor}) {
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,7 @@ const colorRef = useRef();
 
       if (!title.trim()) {
         title = await getColorNameFromAPI(color)
+       
       }
 
       onNewColor(title,color);
